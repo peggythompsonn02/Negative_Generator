@@ -1,1 +1,24 @@
+<html>
+<head>
+  <title>PDF to Text Converter</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add your CSS styles here */
+  </style>
+</head>
+<body>
+  <h1>PDF to Text Converter</h1>
+  <form id="pdfForm">
+    <input type="file" id="pdfInput" multiple>
+    <input type="text" id="separatorInput" placeholder="Enter separator" value="__SEP__">
+    <button type="submit">Convert</button>
+  </form>
+  <button id="copyButton" disabled>Copy</button>
+  <pre id="outputText"></pre>
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
 
