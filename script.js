@@ -10,7 +10,7 @@ document.getElementById('pdfForm').addEventListener('submit', function(event) {
   var separator = document.getElementById('separatorInput').value;
 
   var outputText = document.getElementById('outputText');
-  outputText.textContent = 'Converting...';
+  outputText.textContent = 'Generating...';
 
   var texts = []; // Array to store extracted text
 
