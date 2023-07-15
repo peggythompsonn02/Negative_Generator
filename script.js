@@ -44,11 +44,27 @@ document.getElementById('pdfForm').addEventListener('submit', function(event) {
           if (texts.length === files.length) {
             // Merge all text files into one
             var finalText = texts.join('\n\n');
-            var separatedText = separateLines(finalText, 10, separator);
+            
+            // Remove numbers from the text
+            var textWithoutNumbers = finalText.replace(/[0-9]/g, '');
+            
+            var separatedText = separateLines(textWithoutNumbers, 5, separator);
             outputText.textContent = separatedText;
 
             var copyButton = document.getElementById('copyButton');
             copyButton.disabled = false;
+
+            // Create download link
+            var downloadButton = document.createElement('a');
+            downloadButton.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(textWithoutNumbers);
+            downloadButton.download = 'converted_text.txt';
+            downloadButton.innerText = 'Download';
+
+            // Insert download link at the top of the output section
+            outputText.insertBefore(downloadButton, outputText.firstChild);
+
+            // Add a line break for spacing
+            outputText.insertBefore(document.createElement('br'), outputText.firstChild);
           }
         });
       });
